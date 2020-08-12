@@ -23,26 +23,45 @@ include 'templates/header.php';
          */
         if( isset( $_GET['num1'] ) && !empty( $_GET['num1'] ) ) 
         {
-            $num1 = $_GET['num1'];
+            $num1 = (integer) $_GET['num1']; // We can type-cast 
         }else
         {
             $warnings[] = 'First operand is missing'; //array_push($warnings, 'New warnings.')
         }
         if( isset( $_GET['operator'] ) )
         {
-            $operator = $_GET['operator'];
+            $operator = (string) $_GET['operator'];
         }else
         {
             $warnings[] = 'Operator is missing';
         }
-        if( isset( $_GET['num2'] ) && !empty( $_GET['num2'] ))
+        if( isset( $_GET['num2'] ) && !empty( $_GET['num2'] ) )
         {
-            $num2 = $_GET['num2'];
+            $num2 =  (integer) $_GET['num2'];
         }else
         {
             $warnings[] = 'Second operand is missing';
         }
         
+        // Make sure we have values we can use..
+        if( isset( $num1 ) && isset( $operator ) && isset( $num2 ) )
+        {
+            switch ( $operator )
+            {
+                case 'add':
+                    $result = $num1 + $num2;
+                    break;
+                case 'subtract':
+                    $result = $num1 - $num2;
+                    break;
+                case 'multiply':
+                    $result = $num1 * $num2;
+                    break;
+                case 'divide':
+                    $result = $num1 / $num2;
+                    break;
+            }
+        }
     ?>
     
   <h2>PHP Calculator Form</h2>
@@ -74,6 +93,12 @@ include 'templates/header.php';
       <input type="number" name="num2" id="num2"/>
     </label>
     <input type="submit" value="Get Result"/>
+    <?php if( isset( $result )) : ?>
+    <label for ="result">
+        Result:
+        <input type ="number" value ="<?php echo $result; ?>" disabled>
+    </label>
+    <?php endif; ?>
   </form>
 
 <?php include 'templates/footer.php'; 
