@@ -11,8 +11,22 @@ if( isset( $_GET['search'] ) && !empty( $_GET['search'] ) )
         {
            // var_dump( $peopleArray ); good to test and make sure we're getting the data!
            // We can setup an array to store matches in...
+           $matchingPeopleArray = array();
+           // Loop through each person and check for a match!
+           foreach( $peopleArray as $person)
+           {
+               // check if the name contains the search term 
+                   if( strpos( $person->name, $_GET['search']) !== FALSE )
+                   {
+                       // If the person's name DOES contain the search term, add it to our "matching" array!
+                       array_push ( $matchingPeopleArray, $person);
+                   }
+            }
         }
-    
+        // Convert the array of matches to JSON so we can transport this data.
+        $matchingPeopleString = json_encode( $matchingPeopleArray );
+        // Send out the JSON string of matches!
+        echo $matchingPeopleString;
     }
     else{
         echo 'Unable to retrieve "People" data.';
