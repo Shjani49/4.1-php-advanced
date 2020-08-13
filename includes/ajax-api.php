@@ -25,6 +25,8 @@ if( isset( $_GET['search'] ) && !empty( $_GET['search'] ) )
         }
         // Convert the array of matches to JSON so we can transport this data.
         $matchingPeopleString = json_encode( $matchingPeopleArray );
+        // Set up header to give the client more info about this response.
+        header( 'Content-type: app/JSON; charset=UTF-8' );
         // Send out the JSON string of matches!
         echo $matchingPeopleString;
     }
