@@ -1,8 +1,7 @@
 <?php 
-// Start our session, and declare our history function.
-include 'includes/calc-history.php';
+include 'includes/Pokemon.Class.php';
 global $title; // Try to avoid globals,as they are harder to troubleshoot and track through your application.
-$title = 'PHP HomePage'; // $GLOBALS]'title'] = 'PHP HomePage';
+$title = 'PHP Classes (Pokemon)'; // $GLOBALS]'title'] = 'PHP HomePage';
 include 'templates/header.php'; 
 ?>
 
@@ -10,7 +9,13 @@ include 'templates/header.php';
 
     <?php include 'templates/navigation.php'; ?>
 
-    <h2>Calculator History</h2>
-  <?php showCalcHistory(); // (Defined in calc-history.php) ?>
+  <h2> Test Pokemon Output</h2>
+  <?php 
+    $pikachu = new Pokemon();
+    $pikachu->name = 'PikaPika';
+    echo $pikachu->name;
+  
+  
+  ?>
 
 <?php include 'templates/footer.php'; 

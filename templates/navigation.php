@@ -11,5 +11,10 @@
                 Calculator
             </a>
         </li>
+        <li>
+            <a href="pokemon.php">
+                Pokemon (Classes)
+            </a>
+        </li>
     </ul>
 </nav>

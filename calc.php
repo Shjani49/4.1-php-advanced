@@ -1,4 +1,6 @@
 <?php 
+session_start(); // Session_start() is required for us to access any values stored in this user's session.
+//Note : We are not including calc-history.php , because we aren't using our "showCalHistory() function in this file.
 global $title; // Try to avoid globals,as they are harder to troubleshoot and track through your application.
 $title = 'PHP Calculator'; // $GLOBALS]'title'] = 'PHP HomePage';
 include 'templates/header.php'; 
@@ -60,6 +62,17 @@ include 'templates/header.php';
                 case 'divide':
                     $result = $num1 / $num2;
                     break;
+            }
+            // Check if our result is available.
+            if ( isset( $result ) ) {
+                // If we want to push to an array... it needs to be an array! Let's make sure it is the proper data-type if it isn't already defined.
+                if ( !isset( $_SESSION['calc-history'] ) || empty( $_SESSION['calc-history'] ) ) {
+                $_SESSION['calc-history'] = array();
+                }
+                array_push( // Add this result to the 'calc-history' session array.
+                $_SESSION['calc-history'],
+                "$num1 $operator $num2 = $result"
+                );
             }
         }
     ?>
