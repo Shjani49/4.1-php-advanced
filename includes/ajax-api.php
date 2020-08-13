@@ -16,7 +16,7 @@ if( isset( $_GET['search'] ) && !empty( $_GET['search'] ) )
            foreach( $peopleArray as $person)
            {
                // check if the name contains the search term 
-                   if( strpos( $person->name, $_GET['search']) !== FALSE )
+                   if( stripos( $person->name, $_GET['search']) !== FALSE )
                    {
                        // If the person's name DOES contain the search term, add it to our "matching" array!
                        array_push ( $matchingPeopleArray, $person);
