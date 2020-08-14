@@ -15,11 +15,12 @@
 
 
 <!-- Load JSX Transformer. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>-->
 
 
 <!-- React script(s) -->
-<script type ="text/jsx" src ="js/react-scripts.js" defer></script>
+<!--<script type ="text/jsx" src ="js/react-scripts.js" defer></script>-->
+<script type ="text/babel" src ="js/react-scripts.js" defer></script>
 
 </head>
 <body>
