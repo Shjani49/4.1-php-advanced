@@ -35,6 +35,7 @@ const SearchForm = props =>
         <label htmlFor="search">
           Search People:
           <input
+          required
             type="search"
             name="search"
             id="search"
