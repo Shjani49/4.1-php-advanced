@@ -5,6 +5,7 @@ const SearchForm = props =>
 {
     // Mange "search" term in state
     const[search, setSearch] = React.useState('');
+    const[result, setResult] = React.useState('');
     // Handle form submission.
     const submitSearch = event =>{
         event.preventDefault();
@@ -15,7 +16,9 @@ const SearchForm = props =>
             .then( response => response.json() )
             // Deal with the data.
             .then( data =>{
-                console.log( data );
+                //console.log( data ); // Looks like we're getting result!
+                // capture our results in the component state.
+                setResult( data );
             } )
             // If an error is encountered, notify us (check the browser console.)
             .catch( error =>{
