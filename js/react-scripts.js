@@ -9,6 +9,19 @@ const SearchForm = props =>
     const submitSearch = event =>{
         event.preventDefault();
         //console.log( "Attempt to submit!"); //Tested and working!
+        // Make a request to the expected URL.( API endPoint)
+        fetch( `includes/ajax-api.php?search=${search}`)
+        // Convert the response from a JSON string to a javascript object / array.
+            .then( response => response.json() )
+            // Deal with the data.
+            .then( data =>{
+                console.log( data );
+            } )
+            // If an error is encountered, notify us (check the browser console.)
+            .catch( error =>{
+                throw error;
+            });
+
     }
   
   // Return the JSX (render the component.)
