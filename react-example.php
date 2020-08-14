@@ -10,8 +10,13 @@
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
+<!-- Load Babel. -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
 <!-- Load JSX Transformer. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
 
 <!-- React script(s) -->
 <script type ="text/jsx" src ="js/react-scripts.js" defer></script>
