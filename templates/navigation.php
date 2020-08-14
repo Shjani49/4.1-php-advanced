@@ -26,5 +26,10 @@
             PHP API/AJAX Example
             </a>
         </li>
+        <li>
+            <a href="react-example.php">
+            react-example
+            </a>
+        </li>
     </ul>
 </nav>
